@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Video Downloader</title>
+<style>
+    body {
+        font-family: Arial;
+        text-align: center;
+        background: linear-gradient(to right, #ff7eb3, #65d6ce);
+        color: white;
+        padding: 50px;
+    }
+
+    input {
+        width: 60%;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        background: #ffcc00;
+        font-weight: bold;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+    video {
+        margin-top: 20px;
+        width: 60%;
+        border-radius: 10px;
+    }
+</style>
+</head>
+<body>
+
+<h1>🎬 Video Downloader</h1>
+<p>Paste a direct video link (.mp4)</p>
+
+<input type="text" id="videoURL" placeholder="Enter video link...">
+<button onclick="loadVideo()">Load</button>
+
+<br>
+
+<video id="player" controls></video>
+
+<br>
+<a id="downloadBtn" style="display:none;" download>
+    <button>⬇ Download Video</button>
+</a>
+
+<script>
+function loadVideo() {
+    let url = document.getElementById("videoURL").value;
+    let player = document.getElementById("player");
+    let downloadBtn = document.getElementById("downloadBtn");
+
+    if (!url) {
+        alert("Please enter a link");
+        return;
+    }
+
+    player.src = url;
+    downloadBtn.href = url;
+    downloadBtn.style.display = "inline-block";
+}
+</script>
+
+</body>
+</html>
